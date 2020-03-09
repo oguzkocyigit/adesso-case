@@ -1,28 +1,28 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+        <div class="page-frame">
+            <div class="nav-bar is-flex vertical-align">
+                <div class="column has-text-left">
+                    <img src="@/assets/img/adesso_logo.png" class="logo" alt="">
+                </div>
+                <div class="column router-links has-text-right">
+                    <router-link class="nav-link mr-10" to="/">Home</router-link>
+                    <router-link class="nav-link" to="/units">Units</router-link>
+                </div>
+            </div>
+            <router-view/>
+        </div>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  export default {
+    name: 'App',
+    methods: {
+      goBack () {
+        window.history.length > 1 ? this.$router.go(-1) : this.$router.push('/')
+      }
+    },
   }
-}
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
